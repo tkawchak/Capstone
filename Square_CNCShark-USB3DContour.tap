@@ -1,0 +1,107 @@
+( Square_CNCShark-USB3DContour )
+( File created: Monday March 12 2018 - 02:35 PM)
+( for CNC Shark from Vectric )
+( Material Size)
+( X= 4.000, Y= 4.000, Z= 0.500)
+( Z Origin for Material  = Material Surface)
+( XY Origin for Material = Bottom Left Corner)
+(      XY Origin Position  = X:0.000, Y:0.000)
+( Home Position)
+(  X =  X0.0000 Y =  Y0.0000 Z =  Z0.2100)
+( Safe Z = 0.200)
+()
+(Toolpaths used in this file:)
+(Profile 1)
+(Tool used in this file: )
+(Ball Nose {0.125 inch})
+(|---------------------------------------)
+(| Toolpath:- 'Profile 1'    )
+(|---------------------------------------)
+
+
+(start of toolpath name instructions)
+G90
+G20
+F50.0
+G64 P.1
+S 2000
+M3
+G0  Z0.2100
+(end of toolpath name instructions)
+
+(Feed Rate of 50 instructions per minute)
+(Begin RAPID_MOVE)
+F50.0
+G00 X0.8541 Y0.5784 Z0.2000
+(End RAPID_MOVE)
+
+(begin PLUGE_MOVE)
+F20.0
+G1 X0.8541 Y0.5784 Z-0.0500
+(end PLUGE_MOVE)
+
+(begin FIRST_FEED_MOVE)
+F50.0
+G01 X0.8541 Y3.5034 Z-0.0500
+(end FIRST_FEED_MOVE)
+(continue FEED_MOVE)
+G01 X3.4041 Y3.5034 Z-0.0500
+G01 X3.4041 Y0.5784 Z-0.0500
+G01 X0.8541 Y0.5784 Z-0.0500
+(end FEED_MOVE)
+
+(begin PLUGE_MOVE)
+F20.0
+G1 X0.8541 Y0.5784 Z-0.1000
+(end PLUGE_MOVE)
+
+(begin FIRST_FEED_MOVE)
+F50.0
+G01 X0.8541 Y3.5034 Z-0.1000
+(end FIRST_FEED_MOVE)
+(continue FEED_MOVE)
+G01 X3.4041 Y3.5034 Z-0.1000
+G01 X3.4041 Y0.5784 Z-0.1000
+G01 X0.8541 Y0.5784 Z-0.1000
+(end FEED_MOVE)
+
+(begin PLUGE_MOVE)
+F20.0
+G1 X0.8541 Y0.5784 Z-0.1500
+(end PLUGE_MOVE)
+
+(begin FIRST_FEED_MOVE)
+F50.0
+G01 X0.8541 Y3.5034 Z-0.1500
+(end FIRST_FEED_MOVE)
+(continue FEED_MOVE)
+G01 X3.4041 Y3.5034 Z-0.1500
+G01 X3.4041 Y0.5784 Z-0.1500
+G01 X0.8541 Y0.5784 Z-0.1500
+(end FEED_MOVE)
+
+(begin PLUGE_MOVE)
+F20.0
+G1 X0.8541 Y0.5784 Z-0.2000
+(end PLUGE_MOVE)
+
+(begin FIRST_FEED_MOVE)
+F50.0
+G01 X0.8541 Y3.5034 Z-0.2000
+(end FIRST_FEED_MOVE)
+(continue FEED_MOVE)
+G01 X3.4041 Y3.5034 Z-0.2000
+G01 X3.4041 Y0.5784 Z-0.2000
+G01 X0.8541 Y0.5784 Z-0.2000
+(end FEED_MOVE)
+
+(begin RAPID_MOVE)
+F50.0
+G00 X0.8541 Y0.5784 Z0.2000
+(end RAPID_MOVE)
+
+(FOOTER - output commands at the end of the file)
+G00  Z0.2100
+G00  X0.0000  Y0.0000
+M02
+(end FOOTER)

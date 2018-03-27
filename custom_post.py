@@ -57,6 +57,23 @@ def export(objectslist,filename):
 def parse(inputstring):
     "parse(inputstring): returns a parsed output string"
     print "postprocessing..."
+
+    # List of currently supported GCode commands
+    # Command 	Description 	Supported Arguments
+    # G0 	rapid move 	X,Y,Z,A,B,C
+    # G1 	normal move 	X,Y,Z,A,B,C
+    # G2 	clockwise arc 	X,Y,Z,A,B,C,I,J,K
+    # G3 	counterclockwise arc 	X,Y,Z,A,B,C,I,J,K
+    # G81, G82, G83 	drill 	X,Y,Z,R,Q
+    # G90 	absolute coordinates 	
+    # G91 	relative coordinates 	
+    # (Message) 	comment 
+
+    command_translation = {
+        "G0": "G00",  # rapid move
+        "G1": "G01",  # normal (feed) move
+        "G2": "G02"   # clockwise arc move
+    }
     
     output = "(Custom GCode for SHARK HD4 CNC Machine)\n"
     output += "(Exported by FreeCAD)\n"
@@ -91,17 +108,21 @@ def parse(inputstring):
     lastcommand = ""
     lastfeedrate = ""
     lastplungerate = ""
-    lastXpos = 0
-    lastYpos = 0
-    lastZpos = 0
+    lastXpos = "0"
+    lastYpos = "0"
+    lastZpos = "0"
 
     # treat the input line by line
     lines = inputstring.split("\n")
     for line in lines:
+        line = line.strip()
+        if line == "" or line[0] == "(":
+            continue
+        
         # split the G/M command from the arguments
         line_split = line.split(" ")
         # handle case of G F XYZ commands (most common)
-        if len(line_split) > 2:
+        if len(line_split) > 2 and "F" in line_split[1]:
             command, feedrate, args = line.split(" ", 2)
         # handle case of any other command with args
         elif len(line_split) > 1:
@@ -116,15 +137,52 @@ def parse(inputstring):
         # output command for debug purposes
         output += "(Command: " + command + ", Feed Rate: " + feedrate + ", args: " + args + ")\n"
         
+        # translate the command from Standard GCode to Shark HD4 GCode
+        output_command = command_translation[command]
+
+        # format the command arguments
+        output_commands = ""
+        Xpos = lastXpos
+        Ypos = lastYpos
+        Zpos = lastZpos
+        for arg in args.split(" "):
+            if "X" in arg:
+                Xpos = arg
+            elif "Y" in arg:
+                Ypos = arg
+            elif "Z" in arg:
+                Zpos = arg
+            elif "I" in arg:
+                Ipos = arg
+            elif "J" in arg:
+                Jpos = arg
+            elif "K" in arg:
+                Kpos = arg
+
+        # only output the feedrate if it is different from before
         if feedrate != lastfeedrate:
             output += feedrate + "\n"
 
-        # print out the command and the args
-        output += command + " " + args + "\n"
+        # add the command
+        output += output_command
+
+        # determine which args to give to the output
+        if output_command == "G02":
+            output += " " + Xpos + " " + Ypos + " " + Ipos + " " + Jpos + "\n"
+        elif output_command == "G01":
+            output += " " + Xpos + " " + Ypos + " " + Zpos + "\n"
+        elif output_command == "G00":
+            output += " " + Xpos + " " + Ypos + " " + Zpos + "\n"
+        else:
+            raise ValueError("Unrecognized Command: " + output_command)
+            return "(Unrecognized input Do not Carve!!)\n"
 
         # store the latest command
         lastcommand = command
         lastfeedrate = feedrate
+        lastXpos = Xpos
+        lastYpos = Ypos
+        lastZpos = Zpos
         
     # write some more stuff at the end
     output += "(Begin Footer)\n"

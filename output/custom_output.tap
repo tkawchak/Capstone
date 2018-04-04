@@ -1,0 +1,128 @@
+(Custom GCode for SHARK HD4 CNC Machine)
+(Exported by FreeCAD)
+(Time: 2018-04-03 20:32:27.301000)
+(Start header for carving)
+G90
+G20
+F50.0
+G64 P.1
+S 21000
+M3
+G0 Z0.2100
+(Command: G0, Feed Rate: , args: X-0.5 Y0)
+G00 X-0.5 Y0 Z0.2100
+(Command: G1, Feed Rate: F10, args: X-0.5 Y0 Z8)
+F10
+G01 X-0.5 Y0 Z8
+(Command: G1, Feed Rate: F10, args: X-0.5 Y10 Z8)
+G01 X-0.5 Y10 Z8
+(Command: G2, Feed Rate: F10, args: I0.5 J0 K0 X-0 Y10.5 Z8)
+G02 X-0 Y10.5 I0.5 J0
+(Command: G1, Feed Rate: F10, args: X10 Y10.5 Z8)
+G01 X10 Y10.5 Z8
+(Command: G2, Feed Rate: F10, args: I0 J-0.5 K0 X10.5 Y10 Z8)
+G02 X10.5 Y10 I0 J-0.5
+(Command: G1, Feed Rate: F10, args: X10.5 Y0 Z8)
+G01 X10.5 Y0 Z8
+(Command: G2, Feed Rate: F10, args: I-0.5 J0 K0 X10 Y-0.5 Z8)
+G02 X10 Y-0.5 I-0.5 J0
+(Command: G1, Feed Rate: F10, args: X0 Y-0.5 Z8)
+G01 X0 Y-0.5 Z8
+(Command: G2, Feed Rate: F10, args: I0 J0.5 K0 X-0.5 Y-0 Z8)
+G02 X-0.5 Y-0 I0 J0.5
+(Command: G1, Feed Rate: F10, args: X-0.5 Y0 Z6)
+G01 X-0.5 Y0 Z6
+(Command: G1, Feed Rate: F10, args: X-0.5 Y10 Z6)
+G01 X-0.5 Y10 Z6
+(Command: G2, Feed Rate: F10, args: I0.5 J0 K0 X-0 Y10.5 Z6)
+G02 X-0 Y10.5 I0.5 J0
+(Command: G1, Feed Rate: F10, args: X10 Y10.5 Z6)
+G01 X10 Y10.5 Z6
+(Command: G2, Feed Rate: F10, args: I0 J-0.5 K0 X10.5 Y10 Z6)
+G02 X10.5 Y10 I0 J-0.5
+(Command: G1, Feed Rate: F10, args: X10.5 Y0 Z6)
+G01 X10.5 Y0 Z6
+(Command: G2, Feed Rate: F10, args: I-0.5 J0 K0 X10 Y-0.5 Z6)
+G02 X10 Y-0.5 I-0.5 J0
+(Command: G1, Feed Rate: F10, args: X0 Y-0.5 Z6)
+G01 X0 Y-0.5 Z6
+(Command: G2, Feed Rate: F10, args: I0 J0.5 K0 X-0.5 Y-0 Z6)
+G02 X-0.5 Y-0 I0 J0.5
+(Command: G1, Feed Rate: F10, args: X-0.5 Y0 Z4)
+G01 X-0.5 Y0 Z4
+(Command: G1, Feed Rate: F10, args: X-0.5 Y10 Z4)
+G01 X-0.5 Y10 Z4
+(Command: G2, Feed Rate: F10, args: I0.5 J0 K0 X-0 Y10.5 Z4)
+G02 X-0 Y10.5 I0.5 J0
+(Command: G1, Feed Rate: F10, args: X10 Y10.5 Z4)
+G01 X10 Y10.5 Z4
+(Command: G2, Feed Rate: F10, args: I0 J-0.5 K0 X10.5 Y10 Z4)
+G02 X10.5 Y10 I0 J-0.5
+(Command: G1, Feed Rate: F10, args: X10.5 Y0 Z4)
+G01 X10.5 Y0 Z4
+(Command: G2, Feed Rate: F10, args: I-0.5 J0 K0 X10 Y-0.5 Z4)
+G02 X10 Y-0.5 I-0.5 J0
+(Command: G1, Feed Rate: F10, args: X0 Y-0.5 Z4)
+G01 X0 Y-0.5 Z4
+(Command: G2, Feed Rate: F10, args: I0 J0.5 K0 X-0.5 Y-0 Z4)
+G02 X-0.5 Y-0 I0 J0.5
+(Command: G1, Feed Rate: F10, args: X-0.5 Y0 Z2)
+G01 X-0.5 Y0 Z2
+(Command: G1, Feed Rate: F10, args: X-0.5 Y10 Z2)
+G01 X-0.5 Y10 Z2
+(Command: G2, Feed Rate: F10, args: I0.5 J0 K0 X-0 Y10.5 Z2)
+G02 X-0 Y10.5 I0.5 J0
+(Command: G1, Feed Rate: F10, args: X10 Y10.5 Z2)
+G01 X10 Y10.5 Z2
+(Command: G2, Feed Rate: F10, args: I0 J-0.5 K0 X10.5 Y10 Z2)
+G02 X10.5 Y10 I0 J-0.5
+(Command: G1, Feed Rate: F10, args: X10.5 Y0 Z2)
+G01 X10.5 Y0 Z2
+(Command: G2, Feed Rate: F10, args: I-0.5 J0 K0 X10 Y-0.5 Z2)
+G02 X10 Y-0.5 I-0.5 J0
+(Command: G1, Feed Rate: F10, args: X0 Y-0.5 Z2)
+G01 X0 Y-0.5 Z2
+(Command: G2, Feed Rate: F10, args: I0 J0.5 K0 X-0.5 Y-0 Z2)
+G02 X-0.5 Y-0 I0 J0.5
+(Command: G1, Feed Rate: F10, args: X-0.5 Y0 Z0)
+G01 X-0.5 Y0 Z0
+(Command: G1, Feed Rate: F10, args: X-0.5 Y10 Z0)
+G01 X-0.5 Y10 Z0
+(Command: G2, Feed Rate: F10, args: I0.5 J0 K0 X-0 Y10.5 Z0)
+G02 X-0 Y10.5 I0.5 J0
+(Command: G1, Feed Rate: F10, args: X10 Y10.5 Z0)
+G01 X10 Y10.5 Z0
+(Command: G2, Feed Rate: F10, args: I0 J-0.5 K0 X10.5 Y10 Z0)
+G02 X10.5 Y10 I0 J-0.5
+(Command: G1, Feed Rate: F10, args: X10.5 Y0 Z0)
+G01 X10.5 Y0 Z0
+(Command: G2, Feed Rate: F10, args: I-0.5 J0 K0 X10 Y-0.5 Z0)
+G02 X10 Y-0.5 I-0.5 J0
+(Command: G1, Feed Rate: F10, args: X0 Y-0.5 Z0)
+G01 X0 Y-0.5 Z0
+(Command: G2, Feed Rate: F10, args: I0 J0.5 K0 X-0.5 Y-0 Z0)
+G02 X-0.5 Y-0 I0 J0.5
+(Command: G1, Feed Rate: F10, args: X-0.5 Y0 Z-1)
+G01 X-0.5 Y0 Z-1
+(Command: G1, Feed Rate: F10, args: X-0.5 Y10 Z-1)
+G01 X-0.5 Y10 Z-1
+(Command: G2, Feed Rate: F10, args: I0.5 J0 K0 X-0 Y10.5 Z-1)
+G02 X-0 Y10.5 I0.5 J0
+(Command: G1, Feed Rate: F10, args: X10 Y10.5 Z-1)
+G01 X10 Y10.5 Z-1
+(Command: G2, Feed Rate: F10, args: I0 J-0.5 K0 X10.5 Y10 Z-1)
+G02 X10.5 Y10 I0 J-0.5
+(Command: G1, Feed Rate: F10, args: X10.5 Y0 Z-1)
+G01 X10.5 Y0 Z-1
+(Command: G2, Feed Rate: F10, args: I-0.5 J0 K0 X10 Y-0.5 Z-1)
+G02 X10 Y-0.5 I-0.5 J0
+(Command: G1, Feed Rate: F10, args: X0 Y-0.5 Z-1)
+G01 X0 Y-0.5 Z-1
+(Command: G2, Feed Rate: F10, args: I0 J0.5 K0 X-0.5 Y-0 Z-1)
+G02 X-0.5 Y-0 I0 J0.5
+(Command: G0, Feed Rate: F10, args: Z15)
+G00 X-0.5 Y-0 Z15
+(Begin Footer)
+G00 Z0.2100
+G00 X0.000 Y0.000
+M02

@@ -58,7 +58,7 @@ def parse(inputstring):
     "parse(inputstring): returns a parsed output string"
     print "postprocessing..."
 
-    # List of currently supported GCode commands
+    # List of currently supported GCode commands FreeCAD
     # Command 	Description 	Supported Arguments
     # G0 	rapid move 	X,Y,Z,A,B,C
     # G1 	normal move 	X,Y,Z,A,B,C
@@ -98,19 +98,31 @@ def parse(inputstring):
     # "(| Toolpath:- '[TOOLPATH_NAME]'    )"
     # "(|---------------------------------------)"
     # """
+
+    # Speed of spindle - doesn't really matter?
+    spindlespeed = "21000"
+    rapidrate = "F50.0"
+    # height of the router to move to when not cutting
+    rapidheight = "Z0.2100"
+    # start position of the router
+    startX = "X0.000"
+    startY = "Y0.000"
+    # end position of the router
+    endX = "X0.000"
+    endY = "Y0.000"
     
     # write some stuff first
     output += "(Time: "+str(now)+")\n"
     output += "(Start header for carving)\n"
-    output += "G90\nG20\n[FC]\nG64 P.1\nS 2000\nM3\nG0 [ZH]\n"
+    output += "G90\nG20\n" + rapidrate + "\nG64 P.1\nS " + spindlespeed + "\nM3\nG0 " + rapidheight + "\n"
     
     # vars to keep track of some commands
     lastcommand = ""
     lastfeedrate = ""
     lastplungerate = ""
-    lastXpos = "0"
-    lastYpos = "0"
-    lastZpos = "0"
+    lastXpos = "X0"
+    lastYpos = "Y0"
+    lastZpos = rapidheight
 
     # treat the input line by line
     lines = inputstring.split("\n")
@@ -175,7 +187,7 @@ def parse(inputstring):
             output += " " + Xpos + " " + Ypos + " " + Zpos + "\n"
         else:
             raise ValueError("Unrecognized Command: " + output_command)
-            return "(Unrecognized input Do not Carve!!)\n"
+            return "(Unrecognized input Do not Carve!!)\n"  
 
         # store the latest command
         lastcommand = command
@@ -186,7 +198,7 @@ def parse(inputstring):
         
     # write some more stuff at the end
     output += "(Begin Footer)\n"
-    output += "G00 [ZH]\nG00 [XH] [YH]\nM02"
+    output += "G00 " + rapidheight + "\nG00 " + endX + " " + endY + "\nM02"
     
     print "done postprocessing."
     return output
